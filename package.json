@@ -1,0 +1,24 @@
+{
+  "name": "my-migration-sql",
+  "version": "1.0.0",
+  "description": "Node module used for migrating MySQL table",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DenisFerrero/my-migration-sql.git"
+  },
+  "keywords": [
+    "migration",
+    "mysql",
+    "database"
+  ],
+  "author": "Denis Ferrero",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DenisFerrero/my-migration-sql/issues"
+  },
+  "homepage": "https://github.com/DenisFerrero/my-migration-sql#readme"
+}
