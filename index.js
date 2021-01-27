@@ -25,7 +25,7 @@ class migrations {
       // Using custom path
       if(typeof options.path == 'string') migration_path = options.path;
       // Default settings
-      if(options.saveOptions instanceof storageOptions)
+      if(options.saveOptions.constructor == storageOptions)
         if(options.saveOptions.isValid())
           saveOptions = saveOptions;
         else throw new Error('saveOptions is not valid');
