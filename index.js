@@ -71,8 +71,8 @@ class migrations {
     // TODO in a second moment
   }
 
-  async pending () {
-    return new Promise(function (resolve, reject) {
+  pending () {
+    return new Promise(async function (resolve, reject) {
       let migration_files = fs.readdirSync(migration_path);
       let already_migrated = await saveOptions.getAllMigrated();
       // Remove already migrated
