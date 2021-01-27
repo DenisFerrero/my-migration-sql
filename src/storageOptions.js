@@ -36,14 +36,14 @@ class storageOptions {
   async load (migration_file) {
     try {
       if(!(typeof migration_file == 'string')) throw new Error('The migration to load name passed is not valid');
-      await query('INSERT INTO `' + other_option.table_meta + '` (name) VALUES (' + migration_file + ')');
+      await query('INSERT INTO `' + other_options.table_meta + '` (name) VALUES (' + migration_file + ')');
     } catch(Error) { console.error(Error); }
   }
 
   async unload (migration_file) {
     try {
       if(!(typeof migration_file == 'string')) throw new Error('The migration to unload name passed is not valid');
-      await query('DELETE FROM `' + other_option.table_meta + '` WHERE name = ' + migration_file);
+      await query('DELETE FROM `' + other_options.table_meta + '` WHERE name = ' + migration_file);
     } catch(Error) { console.error(Error); }
   }
 

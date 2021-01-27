@@ -52,7 +52,6 @@ class migrations {
       // All remaining
       else
         files = await this.pending();
-      console.log(typeof files, files);
       return new Promise(async function (resolve, reject) {
         for(const file of files) {
           await query(require(path.join(migration_path, file)).up)
