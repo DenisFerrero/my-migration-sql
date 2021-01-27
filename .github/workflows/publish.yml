@@ -13,10 +13,11 @@ jobs:
       - name: 📚 Checkout
         uses: actions/checkout@v2.1.1
       - name: 🟢 Node
-        uses: actions/setup-node@v1.4.2
+        uses: actions/setup-node@v2
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org
+      - run: npm install
       - name: 🚀 Publish
         run: npm publish --access public
         env:
