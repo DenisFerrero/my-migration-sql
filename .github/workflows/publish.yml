@@ -15,9 +15,9 @@ jobs:
       - name: 🟢 Node
         uses: actions/setup-node@v1.4.2
         with:
-        node-version: 12
-        registry-url: https://registry.npmjs.org
+          node-version: 12
+          registry-url: https://registry.npmjs.org
       - name: 🚀 Publish
         run: npm publish --access public
         env:
-        NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
