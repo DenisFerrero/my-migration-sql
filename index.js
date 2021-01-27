@@ -40,7 +40,7 @@ class migrations {
     } catch (Error) { enabled = false; console.error(`Error during creation of migration instance: ${Error}`); }
   }
 
-  up (target_migration) {
+  async up (target_migration) {
     if(saveOptions.isValid())
       var files = [];
       // Single file
