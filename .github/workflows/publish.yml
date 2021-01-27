@@ -2,7 +2,7 @@ name: "🚀 Release"
 
 on:
   release:
-    branch:
+    branches:
       - master
 
 jobs:
