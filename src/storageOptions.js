@@ -36,7 +36,7 @@ class storageOptions {
   async load (migration_file) {
     try {
       if(!(typeof migration_file == 'string')) throw new Error('The migration to load name passed is not valid');
-      await query("INSERT INTO `" + other_options.table_meta + "` (name) VALUES (" + migration_file + "')");
+      await query("INSERT INTO `" + other_options.table_meta + "` (name) VALUES ('" + migration_file + "')");
     } catch(Error) { console.error(Error); }
   }
 
