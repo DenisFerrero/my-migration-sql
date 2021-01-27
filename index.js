@@ -1,4 +1,4 @@
-var path = './migrations';
+var migration_path = './migrations';
 var enabled = true;
 var saveOptions = {};
 var Connection = {};
@@ -23,7 +23,7 @@ class migrations {
       if(!(options.saveOptions)) throw new Error("Save options is not defined");
       if(!(typeof options.saveOptions == 'object')) throw new Error("saveOptions is not an object");
       // Using custom path
-      if(typeof options.path == 'string') path = options.path;
+      if(typeof options.path == 'string') migration_path = options.path;
       // Default settings
       if(options.saveOptions instanceof storageOptions)
         if(options.saveOptions.isValid())
@@ -43,11 +43,11 @@ class migrations {
       return new Promise(function (resolve, reject) {
         let files = [];
         // Single file
-        if(typeof target_migration == 'string' && fs.readFileSync(target_migration))
+        if(typeof target_migration == 'string' && fs.readFileSync(path.join(migration_path, target_migration)))
           files.push(target_migration);
         // Multiple files
         else if(target_migration.constructor === Array)
-          target_migration.forEach(file => { if(fs.readFileSync(file)) files.push(file); });
+          target_migration.forEach(file => { if(fs.readFileSync(path.join(migration_path, file))) files.push(path.join(migration_path, file)); });
         // All remaining
         else
           files = pending();
