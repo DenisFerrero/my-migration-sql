@@ -1,6 +1,6 @@
 {
   "name": "my-migration-sql",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Node module used for migrating MySQL table",
   "main": "index.js",
   "scripts": {
