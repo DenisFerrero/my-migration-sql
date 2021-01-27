@@ -51,7 +51,7 @@ class migrations {
         target_migration.forEach(file => { if(fs.readFileSync(path.join(migration_path, file))) files.push(path.join(migration_path, file)); });
       // All remaining
       else
-        files = pending();
+        files = this.pending();
       return new Promise(async function (resolve, reject) {
         for(const file of files) {
           await query(require(file).up)
