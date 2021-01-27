@@ -69,7 +69,7 @@ class migrations {
   }
 
   async pending () {
-    let migration_files = fs.readdirSync(path);
+    let migration_files = fs.readdirSync(migration_path);
     let already_migrated = await saveOptions.getAllMigration();
     // Remove already migrated
     return migration_files.filter(file => { !(already_migrated.find(mig => mig.name == file)) });
