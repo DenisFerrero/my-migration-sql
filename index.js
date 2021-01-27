@@ -42,17 +42,17 @@ class migrations {
 
   up (target_migration) {
     if(saveOptions.isValid())
+      let files = [];
+      // Single file
+      if(typeof target_migration == 'string' && fs.readFileSync(path.join(migration_path, target_migration)))
+        files.push(target_migration);
+      // Multiple files
+      else if(Array.isArray(target_migration))
+        target_migration.forEach(file => { if(fs.readFileSync(path.join(migration_path, file))) files.push(path.join(migration_path, file)); });
+      // All remaining
+      else
+        files = pending();
       return new Promise(async function (resolve, reject) {
-        let files = [];
-        // Single file
-        if(typeof target_migration == 'string' && fs.readFileSync(path.join(migration_path, target_migration)))
-          files.push(target_migration);
-        // Multiple files
-        else if(Array.isArray(target_migration))
-          target_migration.forEach(file => { if(fs.readFileSync(path.join(migration_path, file))) files.push(path.join(migration_path, file)); });
-        // All remaining
-        else
-          files = pending();
         for(const file of files) {
           await query(require(file).up)
             .then(() => {
