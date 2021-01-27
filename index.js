@@ -30,8 +30,10 @@ class migrations {
           saveOptions = saveOptions;
         else throw new Error('saveOptions is not valid');
       else {
+        if(!(typeof options.Connection == 'object')) throw new Error('')
         saveOptions = new storageOptions({
           type: (!(typeof options.saveOptions.type == 'string')) ? 'mysql' : options.saveOptions.type,
+          Connection: options.Connection,
           options: options.saveOptions.options
         });
       }
