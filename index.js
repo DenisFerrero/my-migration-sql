@@ -57,11 +57,11 @@ class migrations {
         for(const file of files) {
           await query(require(path.join(migration_path, file)).up)
             .then(() => {
-              console.log(`----- migration ${target_migration} succeffully uploaded! -----`);
+              console.log(`----- migration ${file} succeffully uploaded! -----`);
               // Save file just migrated
-              saveOptions.load(target_migration);
+              saveOptions.load(file);
             })
-            .catch(() => console.log(`----- migration ${target_migration} encountered an Error! -----`));
+            .catch(() => console.log(`----- migration ${file} encountered an Error! -----`));
         }
         resolve(true);
       });
