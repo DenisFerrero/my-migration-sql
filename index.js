@@ -40,7 +40,7 @@ class migrations {
 
   up (target_migration) {
     if(saveOptions.isValid())
-      return new Promise(function (resolve, reject) {
+      return new Promise(async function (resolve, reject) {
         let files = [];
         // Single file
         if(typeof target_migration == 'string' && fs.readFileSync(path.join(migration_path, target_migration)))
