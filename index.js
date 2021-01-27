@@ -48,7 +48,7 @@ class migrations {
         if(typeof target_migration == 'string' && fs.readFileSync(path.join(migration_path, target_migration)))
           files.push(target_migration);
         // Multiple files
-        else if(target_migration.constructor === Array)
+        else if(Array.isArray(target_migration))
           target_migration.forEach(file => { if(fs.readFileSync(path.join(migration_path, file))) files.push(path.join(migration_path, file)); });
         // All remaining
         else
