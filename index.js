@@ -51,8 +51,8 @@ class migrations {
         target_migration.forEach(file => { if(fs.readFileSync(path.join(migration_path, file))) files.push(path.join(migration_path, file)); });
       // All remaining
       else
-        files = this.pending();
-        console.log(typeof files, files);
+        files = await this.pending();
+      console.log(typeof files, files);
       return new Promise(async function (resolve, reject) {
         for(const file of files) {
           await query(require(file).up)
@@ -72,10 +72,12 @@ class migrations {
   }
 
   async pending () {
-    let migration_files = fs.readdirSync(migration_path);
-    let already_migrated = await saveOptions.getAllMigrated();
-    // Remove already migrated
-    return migration_files.filter(file => { return !(already_migrated.find(mig => mig.name == file)) });
+    return new Promise(function (resolve, reject) {
+      let migration_files = fs.readdirSync(migration_path);
+      let already_migrated = await saveOptions.getAllMigrated();
+      // Remove already migrated
+      resolve(migration_files.filter(file => { return !(already_migrated.find(mig => mig.name == file)) }));
+    })
   }
 }
 
