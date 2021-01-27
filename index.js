@@ -55,7 +55,7 @@ class migrations {
       console.log(typeof files, files);
       return new Promise(async function (resolve, reject) {
         for(const file of files) {
-          await query(require(file).up)
+          await query(require(path.join(migration_path, file)).up)
             .then(() => {
               console.log(`----- migration ${target_migration} succeffully uploaded! -----`);
               // Save file just migrated
