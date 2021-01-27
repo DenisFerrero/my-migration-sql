@@ -20,7 +20,7 @@ class storageOptions {
           throw new Error(`${options.type} type not supported yet`);
         } 
       }
-    } catch (Error) { console.error(`Error during creation of StorageOptions`) }
+    } catch (Error) { console.error(`Error during creation of StorageOptions: ${Error}`) }
   };
 
   getAllMigrated () {
