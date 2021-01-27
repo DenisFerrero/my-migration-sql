@@ -63,3 +63,5 @@ function query (qry) {
     })
   });
 }
+
+module.exports = storageOptions;
