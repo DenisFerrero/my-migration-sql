@@ -42,7 +42,7 @@ class migrations {
 
   up (target_migration) {
     if(saveOptions.isValid())
-      let files = [];
+      var files = [];
       // Single file
       if(typeof target_migration == 'string' && fs.readFileSync(path.join(migration_path, target_migration)))
         files.push(target_migration);
