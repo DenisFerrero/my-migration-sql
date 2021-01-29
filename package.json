@@ -4,7 +4,6 @@
   "description": "Node module used for migrating MySQL table",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "mig-generate": "node src/generateMigration.js",
     "seed-generate": "node src/generateMigration.js --path='seeders'"
   },
