@@ -54,13 +54,14 @@ class migrations {
         files = await this.pending();
       return new Promise(async function (resolve, reject) {
         for(const file of files) {
-          await query(require(path.join(migration_path, file)).up)
-            .then(() => {
-              console.log(`----- migration ${file} succeffully uploaded! -----`);
-              // Save file just migrated
-              saveOptions.load(file);
-            })
-            .catch(() => console.log(`----- migration ${file} encountered an Error! -----`));
+          if(typeof require(path.join(migration_path, file)).up == 'string')
+            await query(require(path.join(migration_path, file)).up)
+              .then(() => {
+                console.log(`----- migration ${file} succeffully uploaded! -----`);
+                // Save file just migrated
+                saveOptions.load(file);
+              })
+              .catch(() => console.log(`----- migration ${file} encountered an Error! -----`));
         }
         resolve(true);
       });
