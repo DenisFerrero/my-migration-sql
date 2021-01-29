@@ -17,6 +17,9 @@
   - [Costructor](#costructor)
   - [Methods](#methods)
 - [Other information](#other-information)
+- [Migration generate tool](#migration-generate-tool)
+- [Issues and Feature](#issues-and-feature)
+- [Contributors](#contributors)
 
 
 ## Installation
@@ -79,10 +82,40 @@ This code'll use a MySQL instance to load all the migrations files in the folder
 | ``unload``           | *none*      | ``migration_name``     | Remove the *migration_name* from the storage option         |
 | ``isValid``          | ``Boolean`` | *none*             | Return true if the storageOption is valid to operate                 |
 
+## Migration generate tool
+It's also available a tool that can generate a new migration file, by running
+```sh
+node node_modules/my-migration-sql/src/generateMigration.js
+```
+you'll create a new migration file called *default_name* in the folder *migrations*.
+To customize the options of the file you can use add some args to the command
+| Args                | What does?          |
+|---------------------|---------------------|
+| ``name``            | Customize the name of the migration. Default: 'default_name' |
+| ``path``            | Customize the path where save the migration. Default: 'migrations' |
+
+#### For example:
+
+```sh
+node node_modules/my-migration-sql/src/generateMigration.js --name=ExampleName --path=./example/test_migration 
+```
+
+Create a new migration called ExampleName and save into the folder ./example/test_migration
+
+This is just a demo for this feature because it would be much better have a much cleaner command to run.
+
+**IMPORTANT** Due to the requirement of *node_modules* folder if you have a [dockerized application](https://www.docker.com/) you have to run
+``` npm install ``` anyway to run the generate command
+
+**REMEMBER** For now in the ``down`` and in the ``up`` variable is just allowed use a `String` to declare the query
 
 ## Other information
 
 [![https://nodei.co/npm/my-migration-sql.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/my-migration-sql.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/my-migration-sql)
+
+## Issues and Feature
+
+If you have an idea for a new feature or you found a bug please report it in the [issues section](https://github.com/DenisFerrero/my-migration-sql/issues) 
 
 ### Contributors
 ![Contributors](https://contrib.rocks/image?repo=DenisFerrero/my-migration-sql)
