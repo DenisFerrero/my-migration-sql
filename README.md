@@ -36,7 +36,7 @@ This command'll install the package
 ```js
 const { migrations } = require('my-migration-sql');
 
-let migration = new Migration({
+let migrations = new Migration({
   Connection: MySQLConnection,
   saveOptions: {
     type: 'mysql',
@@ -45,7 +45,7 @@ let migration = new Migration({
   path: 'migrations'
 });
 
-migration.up();
+migrations.up();
 ```
 This code'll use a MySQL instance to load all the migrations files in the folder called *migrations* and save the migrated ones in a table in MySQL
 
