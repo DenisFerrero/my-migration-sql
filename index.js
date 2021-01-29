@@ -75,7 +75,7 @@ class migrations {
       let migration_files = fs.readdirSync(migration_path);
       let already_migrated = await saveOptions.getAllMigrated();
       // Remove already migrated
-      resolve(migration_files.filter(file => { return !(already_migrated.find(mig => mig.name == file)) }));
+      resolve(migration_files.filter(file => { return !(already_migrated.find(mig => mig.migration == file)) }));
     })
   }
 }
