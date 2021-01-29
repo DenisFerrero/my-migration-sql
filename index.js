@@ -92,4 +92,5 @@ function query (qry) {
   });
 }
 
-module.exports = migrations;
+module.exports.migrations = migrations;
+module.exports.storageOptions = storageOptions;
