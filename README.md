@@ -11,14 +11,11 @@
 
 
 ## Table of content
-- [Install](#installation)
+- [Installation](#installation)
 - [Basic](#basic)
-- [Constructor options](#constructor-options)
-  - [my-migration-sql](#my-migration-sql)
-  - [saveOptions](#saveoptions)
-- [Methods](#methods)
-  - [my-migration-sql](#my-migration-sql)
-  - [saveOptions](#saveOptions)
+- [Options](#options)
+  - [Costructor](#costructor)
+  - [Methods](#methods)
 - [Other information](#other-information)
 
 
@@ -49,8 +46,9 @@ migrations.up();
 ```
 This code'll use a MySQL instance to load all the migrations files in the folder called *migrations* and save the migrated ones in a table in MySQL
 
-## Constructor options 
-- ### my-migration-sql
+## Options 
+### Costructor
+#### my-migration-sql
 
 | Option                   | Type              | Explanation              |
 |---------------------------|----------------------------|--------------------------|
@@ -58,23 +56,22 @@ This code'll use a MySQL instance to load all the migrations files in the folder
 | ``path``                  | ``String``                           |Path to the migration folder, can be helpful using [NodeJS path lib](https://www.npmjs.com/package/path)                          |
 | ``saveOptions``               | ``saveOptions instance`` or ``object``|Options used to manage (save or remove) already migrated files|
 
-- ### saveOptions
+#### saveOptions
 | Option              | Type               | Explanation        |
 |---------------------|--------------------|--------------------|
 | ``type``            | ``String``         | Type of saving method of migrated files.Available type:<ul><li>``'mysql'``</li></ul>Default: ``'mysql'``|
 | ``Connection``      | ``MySQL instance`` | Same instance of MySQL of the migrations, used to make queries to the database|
-| ``table_meta``      | ``String``         | if used ``mysql`` type assign custom name to the table where saving migrations.<br>Default: ``'mysql-meta'``
+| ``table_meta``      | ``String``         | if used ``mysql``, type assign custom name to the table where saving migrations.<br>Default: ``'mysql-meta'``
 
-## Methods
-
-- ### my-migration-sql
+### Methods
+#### my-migration-sql
 | Method      | Return type | Accepted parameter                          | What does it do?                                                                                                                                                                             |
 |-------------|-------------|---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ``up``      | ``Promise`` | ``migration_name`` or ``[migration_names]`` | Execute and load migration_name or migration_names present in the migration path to the database and save the changes. If none migration_name used the method'll load all pending migration  |
 | ``down``    | *none*      | ``migration_name``                          | Downgrade and unload migration_name or migration_names present in the database. If none migration_name used the method'll unload all migrations (TODO)                                       |
 | ``pending`` | *none*      | *none*                                      | Get the migrations that are still not loaded to the database                                                                                                                                 |
 
-- ### saveOptions
+#### saveOptions
 | Method               | Return type | Accepted parameter | What does it do?                                            |
 |----------------------|-------------|--------------------|-------------------------------------------------------------|
 | ``getAllMigrated``   | ``Promise`` | *none*             | Return all migrated files to the database                   |
