@@ -1,17 +1,15 @@
 {
-  "name": "@denisferrero/my-migration-sql",
-  "version": "1.0.0",
+  "name": "my-migration-sql",
+  "version": "1.0.2",
   "description": "Node module used for migrating MySQL table",
   "main": "index.js",
   "scripts": {
     "mig-generate": "node src/generateMigration.js",
     "seed-generate": "node src/generateMigration.js --path='seeders'"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "repository": {
-    "url": "git@github.com/DenisFerrero/my-migration-sql.git"
+    "type": "git",
+    "url": "git+https://github.com/DenisFerrero/my-migration-sql.git"
   },
   "keywords": [
     "migration",
