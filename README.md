@@ -21,13 +21,13 @@
 
 ## Installation
 
-[NodeJS](https://nodejs.org/) module to automatically load migration and other queries using [MySQL](https://github.com/mysqljs/mysql) node instance
-Install NodeJS from the [official website](https://nodejs.org/en/download/) by dowloading the version based on your O/S
-Then in your project workspace console run
+[NodeJS](https://nodejs.org/) module to automatically load migrations and other queries using [MySQL](https://github.com/mysqljs/mysql) node instance
+Install NodeJS from the [official website](https://nodejs.org/en/download/) by downloading the version based on your O/S
+Then in your project workspace console run this command
 ```sh
 npm install my-migration-sql
 ```
-This command'll install the package
+You'll install the package
 
 ## Basic
 ```js
@@ -44,7 +44,7 @@ let migrations = new Migration({
 
 migrations.up();
 ```
-This code'll use a MySQL instance to load all the migrations files in the folder called *migrations* and save the migrated ones in a table in MySQL
+This code'll use a MySQL instance to load all the migrations files in the folder called *migrations* using up method and save the migrated ones in a table in MySQL
 
 ## Options 
 ### Costructor
@@ -53,21 +53,21 @@ This code'll use a MySQL instance to load all the migrations files in the folder
 | Option                   | Type              | Explanation              |
 |---------------------------|----------------------------|--------------------------|
 | ``Connection``            | ``MySQL instance``             |Instance of MySQL using [createConnection method](https://github.com/mysqljs/mysql/blob/master/Readme.md#establishing-connections)|
-| ``path``                  | ``String``                           |Path to the migration folder, can be helpful using [NodeJS path lib](https://www.npmjs.com/package/path)                          |
+| ``path``                  | ``String``                           |Path to the migration folder, can be helpful using [Node Path](https://www.npmjs.com/package/path)                          |
 | ``saveOptions``               | ``saveOptions instance`` or ``object``|Options used to manage (save or remove) already migrated files|
 
 #### saveOptions
 | Option              | Type               | Explanation        |
 |---------------------|--------------------|--------------------|
 | ``type``            | ``String``         | Type of saving method of migrated files.Available type:<ul><li>``'mysql'``</li></ul>Default: ``'mysql'``|
-| ``Connection``      | ``MySQL instance`` | Same instance of MySQL of the migrations, used to make queries to the database|
-| ``table_meta``      | ``String``         | if used ``mysql``, type assign custom name to the table where saving migrations.<br>Default: ``'mysql-meta'``
+| ``Connection``      | ``MySQL instance`` | Same instance of MySQL from the migrations, used to make queries to the database|
+| ``table_meta``      | ``String``         | **only ``mysql`` type**, assign custom name to the table where saving migrations.<br>Default: ``'mysql-meta'``
 
 ### Methods
 #### my-migration-sql
 | Method      | Return type | Accepted parameter                          | What does it do?                                                                                                                                                                             |
 |-------------|-------------|---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ``up``      | ``Promise`` | ``migration_name`` or ``[migration_names]`` | Execute and load migration_name or migration_names present in the migration path to the database and save the changes. If none migration_name used the method'll load all pending migration  |
+| ``up``      | ``Promise`` | ``migration_name`` or ``[migration_names]`` | Execute and load migration_name or migration_names present in the migration path to the database and save the changes. If none migration_name used the method'll load all pending migrations  |
 | ``down``    | *none*      | ``migration_name``                          | Downgrade and unload migration_name or migration_names present in the database. If none migration_name used the method'll unload all migrations (TODO)                                       |
 | ``pending`` | *none*      | *none*                                      | Get the migrations that are still not loaded to the database                                                                                                                                 |
 
@@ -77,7 +77,7 @@ This code'll use a MySQL instance to load all the migrations files in the folder
 | ``getAllMigrated``   | ``Promise`` | *none*             | Return all migrated files to the database                   |
 | ``load``             | *none*      | ``migration_name``     | Save the *migration_name* as migrated to the storage option |
 | ``unload``           | *none*      | ``migration_name``     | Remove the *migration_name* from the storage option         |
-| ``isValid``          | ``Boolean`` | *none*             | Return if the storageOption is valid or not                 |
+| ``isValid``          | ``Boolean`` | *none*             | Return true if the storageOption is valid to operate                 |
 
 
 ## Other information
