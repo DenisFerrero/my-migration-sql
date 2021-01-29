@@ -17,8 +17,10 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 12
-          registry-url: https://registry.npmjs.org
+          registry-url: https://npm.pkg.github.com/
+          scope: "@DenisFerrero"
+      - run: npm ci
       - name: 🚀 Publish
-        run: npm publish --access public
+        run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.CICD_TOKEN}}

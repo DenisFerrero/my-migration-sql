@@ -7,6 +7,9 @@
     "mig-generate": "node src/generateMigration.js",
     "seed-generate": "node src/generateMigration.js --path='seeders'"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DenisFerrero/my-migration-sql.git"
