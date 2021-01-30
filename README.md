@@ -1,9 +1,6 @@
 # my-migration-sql
 
-
-![Latest release](https://badgen.net/github/release/DenisFerrero/my-migration-sql)
 ![Latest tag](https://badgen.net/github/tag/DenisFerrero/my-migration-sql)
-![CI Badge](https://badgen.net/github/status/DenisFerrero/my-migration-sql/master/ci)
 ![Created](https://badges.pufler.dev/created/DenisFerrero/my-migration-sql)
 ![Updated](https://badges.pufler.dev/updated/DenisFerrero/my-migration-sql)
 ![License](https://badgen.net/github/license/DenisFerrero/my-migration-sql)
@@ -36,7 +33,7 @@ You'll install the package
 ```js
 const { migrations } = require('my-migration-sql');
 
-let migrations = new Migration({
+let Migration = new migrations({
   Connection: MySQLConnection,
   saveOptions: {
     type: 'mysql',
@@ -45,7 +42,7 @@ let migrations = new Migration({
   path: 'migrations'
 });
 
-migrations.up();
+Migration.up();
 ```
 This code'll use a MySQL instance to load all the migrations files in the folder called *migrations* using up method and save the migrated ones in a table in MySQL
 
@@ -105,7 +102,7 @@ Create a new migration called ExampleName and save into the folder ./example/tes
 This is just a demo for this feature because it would be much better have a much cleaner command to run.
 
 **IMPORTANT** Due to the requirement of *node_modules* folder if you have a [dockerized application](https://www.docker.com/) you have to run
-``` npm install ``` anyway to run the generate command
+``` npm install ``` anyway to run the use command
 
 **REMEMBER** For now in the ``down`` and in the ``up`` variable is just allowed use a `String` to declare the query
 
@@ -117,5 +114,5 @@ This is just a demo for this feature because it would be much better have a much
 
 If you have an idea for a new feature or you found a bug please report it in the [issues section](https://github.com/DenisFerrero/my-migration-sql/issues) 
 
-### Contributors
+## Contributors
 ![Contributors](https://contrib.rocks/image?repo=DenisFerrero/my-migration-sql)
