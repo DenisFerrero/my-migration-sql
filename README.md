@@ -111,6 +111,8 @@ This is just a demo for this feature because it would be much better have a much
 
 [![https://nodei.co/npm/my-migration-sql.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/my-migration-sql.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/my-migration-sql)
 
+<a href="https://www.buymeacoffee.com/DenisFerrero" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
 ## Issues and Feature
 
 If you have an idea for a new feature or you found a bug please report it in the [issues section](https://github.com/DenisFerrero/my-migration-sql/issues) 
