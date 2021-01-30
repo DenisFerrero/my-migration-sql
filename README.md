@@ -14,8 +14,8 @@
 - [Options](#options)
   - [Costructor](#costructor)
   - [Methods](#methods)
-- [Other information](#other-information)
 - [Migration generate tool](#migration-generate-tool)
+- [Other information](#other-information)
 - [Issues and Feature](#issues-and-feature)
 - [Contributors](#contributors)
 
