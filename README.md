@@ -1,9 +1,7 @@
 # my-migration-sql
 
 ![Latest release](https://badgen.net/github/release/DenisFerrero/my-migration-sql)
-![Latest tag](https://badgen.net/github/tag/DenisFerrero/my-migration-sql)
 ![Created](https://badges.pufler.dev/created/DenisFerrero/my-migration-sql)
-![Updated](https://badges.pufler.dev/updated/DenisFerrero/my-migration-sql)
 ![License](https://badgen.net/github/license/DenisFerrero/my-migration-sql)
 ![NPM Version](https://badgen.net/npm/v/my-migration-sql)
 
